@@ -1,0 +1,29 @@
+﻿@model HIFIS.Organization.ListItem[]
+@{
+    ViewData["Title"] = "HIFIS Sample Application";
+}
+
+<div class="text-center">
+    <h1 class="display-4">HIFIS 4 WCF Demo Page</h1>
+
+    <table>
+        <thead>
+            <tr><td>ID</td><td>Name</td></tr>
+        </thead>
+        <tbody>
+            @foreach (var org in Model)
+            {
+                <tr>
+                    <td>
+                        @org.Value
+                    </td>
+                    <td>
+                        @org.Label
+                    </td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+    
+</div>

@@ -1,0 +1,48 @@
+﻿<!-- The controller passes in a collection on templates as an array -->
+@model HIFIS.PitEvent.PitTemplate[]
+@{
+    ViewData["Title"] = "HIFIS Sample Application";
+}
+
+<div class="text-center">
+    <h1 class="display-4">HIFIS 4 WCF Demo Page</h1>
+
+    <!-- Iterate through Model (the array of templates)-->
+    @foreach (var template in Model)
+    {
+        <h3>
+            <!-- Display the template name, you can inspect the 'template' instance here for more properties -->
+            Template: @template.PitTemplateName
+        </h3>
+        <table>
+            <thead>
+                <tr><td>Sequence</td><td>Number</td><td>Label</td></tr>
+            </thead>
+            <tbody>
+                <!-- For example, there is a 'Questions' property that contains the collection of questions! -->
+                @foreach (var question in template.Questions.OrderBy(q => q.SequenceLabel).ThenBy(q => q.SequenceNo))
+                {
+                    <tr>
+                        <td>
+                            @question.SequenceLabel
+                        </td>
+                        <td>
+                            @question.SequenceNo
+                        </td>
+                        <td>
+                            @question.PitQuestionName
+                        </td>
+
+                        <!-- Lots of other properties on the 'question' object here, like:
+                            "question.DropdownValues". That is a collection of DropDown
+                            values if the question is a dropdown or select type!
+
+                            You can get the type of question by:
+                            question.QuestionTypeID
+                        -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
