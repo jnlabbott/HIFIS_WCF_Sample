@@ -16,7 +16,7 @@ namespace HIFISSampleProject.Controllers
         {
             _logger = logger;
             // Authenticate with the HIFIS System, this example uses the public facing
-            // HIFIS Demo Site as https://demo.hifis.ca
+            // HIFIS Demo Site at https://demo.hifis.ca
             // See the Connected Services folder for the WCF references.
             authenticationClient = new HIFIS.Authentication.AuthenticationServiceClient();
         }
@@ -37,14 +37,18 @@ namespace HIFISSampleProject.Controllers
             // Create token for calling Organization Service
             await UpdateAuthenticationTokenAsync(HttpContext.Session.Id);
             
-            // If you don't have the HIFIS libraries you will have to create am authentication token
-            // for each service you want to call, and just copy the required properties from the one
-            // that was returned from ValidateUser above.
+            // If you don't have the HIFIS libraries you will have to create an authentication token
+            // for each service you want to call in the namespace for that service. You then have to
+            // copy the required properties from the one in the Authentication namespace (see above)
+            // that was returned from ValidateUser method.
             HIFIS.Organization.Authentication organizationToken = new HIFIS.Organization.Authentication();
+            
+            // Copy the token value, the current organization ID, and the username:
             organizationToken.AuthenticationToken = authenticationToken.AuthenticationToken;
             organizationToken.CurrentOrgID = authenticationToken.CurrentOrgID;
             organizationToken.userName = authenticationToken.userName;
 
+            // Now use that token to make calls on the HIFIS.Organization endpoint:
             HIFIS.Organization.ListItem[] orgNames = await organizationClient.GetOrganizationListAsync(1, organizationToken);
             
             return View(orgNames);
@@ -55,9 +59,9 @@ namespace HIFISSampleProject.Controllers
             HIFIS.PitEvent.PitEventServiceClient pitEventClient = new HIFIS.PitEvent.PitEventServiceClient();
 
             // Create token for calling Pit Event Service
-
             await UpdateAuthenticationTokenAsync(HttpContext.Session.Id);
 
+            // Copy the properties:
             HIFIS.PitEvent.Authentication pitEventToken = new HIFIS.PitEvent.Authentication();
             pitEventToken.AuthenticationToken = authenticationToken.AuthenticationToken;
             pitEventToken.CurrentOrgID = authenticationToken.CurrentOrgID;
@@ -85,7 +89,7 @@ namespace HIFISSampleProject.Controllers
                 template.Questions = fullTemplate.Questions;
             }
 
-            // Return the list of templates, now with their questions to the view
+            // Return the list of templates, now with their questions included, to the view
             return View(templates);
         }
 
