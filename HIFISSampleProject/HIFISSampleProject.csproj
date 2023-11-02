@@ -14,4 +14,18 @@
     <PackageReference Include="System.ServiceModel.Security" Version="4.10.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+    <Folder Include="External DLLs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HIFIS.CONTRACTS">
+      <HintPath>External DLLs\HIFIS.CONTRACTS.dll</HintPath>
+    </Reference>
+    <Reference Include="HIFIS.ENUMS">
+      <HintPath>External DLLs\HIFIS.ENUMS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
