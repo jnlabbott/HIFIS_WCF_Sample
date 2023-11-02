@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="e470e346-412c-4ca9-8891-71dabe99ca2e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HIFIS.xsd" MetadataType="Schema" ID="10542b04-9eb4-4c53-a355-f6f5fe8efd75" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="OrganizationService.wsdl" MetadataType="Wsdl" ID="2b3ddcd9-a2cc-42ff-bdd0-38eb7d03780c" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?wsdl" />
+    <MetadataFile FileName="HIFIS1.xsd" MetadataType="Schema" ID="50c976cb-8523-453d-b7c7-3c973fbc3f6f" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HIFIS2.xsd" MetadataType="Schema" ID="cc2338fa-f113-4806-b804-3077cca0ab89" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HIFIS3.xsd" MetadataType="Schema" ID="d50f57b0-3568-4f68-9c57-77899e9df111" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HIFIS4.xsd" MetadataType="Schema" ID="2a43a21b-4449-4861-be53-2b4381892164" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NHIS.Models" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NHIS.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPITMarketQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PITMarketQuestion" nillable="true" type="tns:PITMarketQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPITMarketQuestion" nillable="true" type="tns:ArrayOfPITMarketQuestion" />
+  <xs:complexType name="PITMarketQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Approved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ListEng" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListFr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QlabelE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QlabelF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="downloadcount" type="xs:int" />
+      <xs:element minOccurs="0" name="dtStamp" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fk_lkQuest" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PITMarketQuestion" nillable="true" type="tns:PITMarketQuestion" />
+</xs:schema>

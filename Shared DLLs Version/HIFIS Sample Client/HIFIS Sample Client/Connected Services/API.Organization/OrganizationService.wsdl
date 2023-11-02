@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="OrganizationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IOrganizationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOrganizationService_GetAllOrganizations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizations" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationsUnderOrgID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationsUnderOrgID" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationsUnderOrgID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationsUnderOrgIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationAgeGroupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationAgeGroupList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationAgeGroupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationAgeGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationListByClusterID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationListByClusterID" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationListByClusterID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationListByClusterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetAllOrganizationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganizationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_DeleteOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_DeleteOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetGenderServedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenderServedList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetGenderServedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenderServedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetServicesOfferedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesOfferedList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetServicesOfferedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesOfferedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOtherAttributesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOtherAttributesList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOtherAttributesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOtherAttributesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateOrganizationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateOrganizationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetShelter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShelter" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetShelter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShelterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetShelters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShelters" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetShelters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSheltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedsList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBed" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedStatusHistoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedStatusHistoryList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedStatusHistoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedStatusHistoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedStatusHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedStatusHistory" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetBedStatusHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBedStatusHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateBedStatusHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBedStatusHistory" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateBedStatusHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBedStatusHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_AddBed_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBed" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_AddBed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateBed_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBed" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateBed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_RemoveBed_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveBed" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_RemoveBed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveBedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoom" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoomsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoomsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_AddRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoom" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_AddRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoom" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_RemoveRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRoom" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_RemoveRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetMandatoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatoryList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetMandatoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateMandatory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMandatory" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateMandatory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMandatoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_CopyMandatoriesFromServiceProvider_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyMandatoriesFromServiceProvider" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_CopyMandatoriesFromServiceProvider_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyMandatoriesFromServiceProviderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetMandatories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatories" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetMandatories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetReadonlyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadonlyList" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetReadonlyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadonlyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoomsForOrg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsForOrg" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetRoomsForOrg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsForOrgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationMeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationMeta" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetOrganizationMeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetModuleSections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleSections" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetModuleSections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleSectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetSubSections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubSections" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetSubSections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubSectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetModuleTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleTypes" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetModuleTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetSectionFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSectionFields" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_GetSectionFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSectionFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateAllBedsActiveStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAllBedsActiveStatus" />
+  </wsdl:message>
+  <wsdl:message name="IOrganizationService_UpdateAllBedsActiveStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAllBedsActiveStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOrganizationService">
+    <wsdl:operation name="GetAllOrganizations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizations" message="tns:IOrganizationService_GetAllOrganizations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationsResponse" message="tns:IOrganizationService_GetAllOrganizations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationsUnderOrgID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationsUnderOrgID" message="tns:IOrganizationService_GetAllOrganizationsUnderOrgID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationsUnderOrgIDResponse" message="tns:IOrganizationService_GetAllOrganizationsUnderOrgID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganization" message="tns:IOrganizationService_GetOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationResponse" message="tns:IOrganizationService_GetOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationList" message="tns:IOrganizationService_GetOrganizationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationListResponse" message="tns:IOrganizationService_GetOrganizationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationAgeGroupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationAgeGroupList" message="tns:IOrganizationService_GetAllOrganizationAgeGroupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationAgeGroupListResponse" message="tns:IOrganizationService_GetAllOrganizationAgeGroupList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationListByClusterID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationListByClusterID" message="tns:IOrganizationService_GetOrganizationListByClusterID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationListByClusterIDResponse" message="tns:IOrganizationService_GetOrganizationListByClusterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationList" message="tns:IOrganizationService_GetAllOrganizationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetAllOrganizationListResponse" message="tns:IOrganizationService_GetAllOrganizationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateOrganization" message="tns:IOrganizationService_UpdateOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateOrganizationResponse" message="tns:IOrganizationService_UpdateOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/DeleteOrganization" message="tns:IOrganizationService_DeleteOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/DeleteOrganizationResponse" message="tns:IOrganizationService_DeleteOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenderServedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetGenderServedList" message="tns:IOrganizationService_GetGenderServedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetGenderServedListResponse" message="tns:IOrganizationService_GetGenderServedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesOfferedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetServicesOfferedList" message="tns:IOrganizationService_GetServicesOfferedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetServicesOfferedListResponse" message="tns:IOrganizationService_GetServicesOfferedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOtherAttributesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOtherAttributesList" message="tns:IOrganizationService_GetOtherAttributesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOtherAttributesListResponse" message="tns:IOrganizationService_GetOtherAttributesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationSettings" message="tns:IOrganizationService_GetOrganizationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationSettingsResponse" message="tns:IOrganizationService_GetOrganizationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganizationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateOrganizationSettings" message="tns:IOrganizationService_UpdateOrganizationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateOrganizationSettingsResponse" message="tns:IOrganizationService_UpdateOrganizationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShelter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetShelter" message="tns:IOrganizationService_GetShelter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetShelterResponse" message="tns:IOrganizationService_GetShelter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShelters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetShelters" message="tns:IOrganizationService_GetShelters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetSheltersResponse" message="tns:IOrganizationService_GetShelters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBedsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetBedsList" message="tns:IOrganizationService_GetBedsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetBedsListResponse" message="tns:IOrganizationService_GetBedsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetBed" message="tns:IOrganizationService_GetBed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetBedResponse" message="tns:IOrganizationService_GetBed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBedStatusHistoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetBedStatusHistoryList" message="tns:IOrganizationService_GetBedStatusHistoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetBedStatusHistoryListResponse" message="tns:IOrganizationService_GetBedStatusHistoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBedStatusHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetBedStatusHistory" message="tns:IOrganizationService_GetBedStatusHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetBedStatusHistoryResponse" message="tns:IOrganizationService_GetBedStatusHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBedStatusHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateBedStatusHistory" message="tns:IOrganizationService_UpdateBedStatusHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateBedStatusHistoryResponse" message="tns:IOrganizationService_UpdateBedStatusHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/AddBed" message="tns:IOrganizationService_AddBed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/AddBedResponse" message="tns:IOrganizationService_AddBed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateBed" message="tns:IOrganizationService_UpdateBed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateBedResponse" message="tns:IOrganizationService_UpdateBed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/RemoveBed" message="tns:IOrganizationService_RemoveBed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/RemoveBedResponse" message="tns:IOrganizationService_RemoveBed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetRoom" message="tns:IOrganizationService_GetRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetRoomResponse" message="tns:IOrganizationService_GetRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetRoomsList" message="tns:IOrganizationService_GetRoomsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetRoomsListResponse" message="tns:IOrganizationService_GetRoomsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/AddRoom" message="tns:IOrganizationService_AddRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/AddRoomResponse" message="tns:IOrganizationService_AddRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateRoom" message="tns:IOrganizationService_UpdateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateRoomResponse" message="tns:IOrganizationService_UpdateRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/RemoveRoom" message="tns:IOrganizationService_RemoveRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/RemoveRoomResponse" message="tns:IOrganizationService_RemoveRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetMandatoryList" message="tns:IOrganizationService_GetMandatoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetMandatoryListResponse" message="tns:IOrganizationService_GetMandatoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMandatory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateMandatory" message="tns:IOrganizationService_UpdateMandatory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateMandatoryResponse" message="tns:IOrganizationService_UpdateMandatory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyMandatoriesFromServiceProvider">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/CopyMandatoriesFromServiceProvider" message="tns:IOrganizationService_CopyMandatoriesFromServiceProvider_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/CopyMandatoriesFromServiceProviderResponse" message="tns:IOrganizationService_CopyMandatoriesFromServiceProvider_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetMandatories" message="tns:IOrganizationService_GetMandatories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetMandatoriesResponse" message="tns:IOrganizationService_GetMandatories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReadonlyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetReadonlyList" message="tns:IOrganizationService_GetReadonlyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetReadonlyListResponse" message="tns:IOrganizationService_GetReadonlyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsForOrg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetRoomsForOrg" message="tns:IOrganizationService_GetRoomsForOrg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetRoomsForOrgResponse" message="tns:IOrganizationService_GetRoomsForOrg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationMeta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationMeta" message="tns:IOrganizationService_GetOrganizationMeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetOrganizationMetaResponse" message="tns:IOrganizationService_GetOrganizationMeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleSections">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetModuleSections" message="tns:IOrganizationService_GetModuleSections_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetModuleSectionsResponse" message="tns:IOrganizationService_GetModuleSections_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubSections">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetSubSections" message="tns:IOrganizationService_GetSubSections_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetSubSectionsResponse" message="tns:IOrganizationService_GetSubSections_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetModuleTypes" message="tns:IOrganizationService_GetModuleTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetModuleTypesResponse" message="tns:IOrganizationService_GetModuleTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/GetSectionFields" message="tns:IOrganizationService_GetSectionFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/GetSectionFieldsResponse" message="tns:IOrganizationService_GetSectionFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllBedsActiveStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrganizationService/UpdateAllBedsActiveStatus" message="tns:IOrganizationService_UpdateAllBedsActiveStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrganizationService/UpdateAllBedsActiveStatusResponse" message="tns:IOrganizationService_UpdateAllBedsActiveStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IOrganizationService" type="tns:IOrganizationService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IOrganizationService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllOrganizations">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetAllOrganizations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationsUnderOrgID">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetAllOrganizationsUnderOrgID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganization">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOrganizationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationAgeGroupList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetAllOrganizationAgeGroupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationListByClusterID">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOrganizationListByClusterID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganizationList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetAllOrganizationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganization">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/DeleteOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenderServedList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetGenderServedList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesOfferedList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetServicesOfferedList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOtherAttributesList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOtherAttributesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOrganizationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganizationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateOrganizationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShelter">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetShelter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShelters">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetShelters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBedsList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetBedsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBed">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetBed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBedStatusHistoryList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetBedStatusHistoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBedStatusHistory">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetBedStatusHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBedStatusHistory">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateBedStatusHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBed">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/AddBed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBed">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateBed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBed">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/RemoveBed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoom">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetRoomsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoom">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/AddRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoom">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoom">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/RemoveRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetMandatoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMandatory">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateMandatory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyMandatoriesFromServiceProvider">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/CopyMandatoriesFromServiceProvider" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatories">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetMandatories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReadonlyList">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetReadonlyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsForOrg">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetRoomsForOrg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationMeta">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetOrganizationMeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleSections">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetModuleSections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubSections">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetSubSections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleTypes">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetModuleTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionFields">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/GetSectionFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllBedsActiveStatus">
+      <soap12:operation soapAction="http://tempuri.org/IOrganizationService/UpdateAllBedsActiveStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrganizationService">
+    <wsdl:port name="WSHttpBinding_IOrganizationService" binding="tns:WSHttpBinding_IOrganizationService">
+      <soap12:address location="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.OrganizationService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

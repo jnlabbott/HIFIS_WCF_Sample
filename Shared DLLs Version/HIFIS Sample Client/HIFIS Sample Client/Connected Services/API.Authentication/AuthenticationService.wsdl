@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="AuthenticationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuthenticationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Web.Security" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthenticationService_GetApplicationName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationName" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetApplicationName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserByUserKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserKey" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserByUserKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ChangePasswordQuestionAndAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordQuestionAndAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ChangePasswordQuestionAndAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordQuestionAndAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetEnablePasswordReset_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePasswordReset" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetEnablePasswordReset_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePasswordResetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetEnablePasswordRetrieval_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePasswordRetrieval" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetEnablePasswordRetrieval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePasswordRetrievalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByName" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetNumberOfUsersOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfUsersOnline" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetNumberOfUsersOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfUsersOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserNameByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUserNameByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMaxInvalidPasswordAttempts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxInvalidPasswordAttempts" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMaxInvalidPasswordAttempts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxInvalidPasswordAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMinRequiredNonAlphanumericCharacters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinRequiredNonAlphanumericCharacters" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMinRequiredNonAlphanumericCharacters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinRequiredNonAlphanumericCharactersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMinRequiredPasswordLength_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinRequiredPasswordLength" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetMinRequiredPasswordLength_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinRequiredPasswordLengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordAttemptWindow_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordAttemptWindow" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordAttemptWindow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordAttemptWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordFormat" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordStrengthRegularExpression_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordStrengthRegularExpression" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetPasswordStrengthRegularExpression_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordStrengthRegularExpressionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRequiresQuestionAndAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiresQuestionAndAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRequiresQuestionAndAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiresQuestionAndAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRequiresUniqueEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiresUniqueEmail" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRequiresUniqueEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiresUniqueEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_UnlockUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_UnlockUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RenewToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenewToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RenewToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenewTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_InitializeTwoFactorToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeTwoFactorToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_InitializeTwoFactorToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeTwoFactorTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_LogOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogOff" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_LogOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_AddUsersToRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersToRoles" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_AddUsersToRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersToRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_DeleteRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_DeleteRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_FindUsersInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRolesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetRolesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUsersInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_GetUsersInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_IsUserInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_IsUserInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RemoveUsersFromRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUsersFromRoles" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RemoveUsersFromRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUsersFromRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RoleExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleExists" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticationService_RoleExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleExistsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAuthenticationService">
+    <wsdl:operation name="GetApplicationName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetApplicationName" message="tns:IAuthenticationService_GetApplicationName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetApplicationNameResponse" message="tns:IAuthenticationService_GetApplicationName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserByUserName" message="tns:IAuthenticationService_GetUserByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserByUserNameResponse" message="tns:IAuthenticationService_GetUserByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserByUserKey" message="tns:IAuthenticationService_GetUserByUserKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserByUserKeyResponse" message="tns:IAuthenticationService_GetUserByUserKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/ChangePassword" message="tns:IAuthenticationService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/ChangePasswordResponse" message="tns:IAuthenticationService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordQuestionAndAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/ChangePasswordQuestionAndAnswer" message="tns:IAuthenticationService_ChangePasswordQuestionAndAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/ChangePasswordQuestionAndAnswerResponse" message="tns:IAuthenticationService_ChangePasswordQuestionAndAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/CreateUser" message="tns:IAuthenticationService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/CreateUserResponse" message="tns:IAuthenticationService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/DeleteUser" message="tns:IAuthenticationService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/DeleteUserResponse" message="tns:IAuthenticationService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnablePasswordReset">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetEnablePasswordReset" message="tns:IAuthenticationService_GetEnablePasswordReset_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetEnablePasswordResetResponse" message="tns:IAuthenticationService_GetEnablePasswordReset_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnablePasswordRetrieval">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetEnablePasswordRetrieval" message="tns:IAuthenticationService_GetEnablePasswordRetrieval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetEnablePasswordRetrievalResponse" message="tns:IAuthenticationService_GetEnablePasswordRetrieval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersByEmail" message="tns:IAuthenticationService_FindUsersByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersByEmailResponse" message="tns:IAuthenticationService_FindUsersByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersByName" message="tns:IAuthenticationService_FindUsersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersByNameResponse" message="tns:IAuthenticationService_FindUsersByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetAllUsers" message="tns:IAuthenticationService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetAllUsersResponse" message="tns:IAuthenticationService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfUsersOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetNumberOfUsersOnline" message="tns:IAuthenticationService_GetNumberOfUsersOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetNumberOfUsersOnlineResponse" message="tns:IAuthenticationService_GetNumberOfUsersOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetPassword" message="tns:IAuthenticationService_GetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordResponse" message="tns:IAuthenticationService_GetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserNameByEmail" message="tns:IAuthenticationService_GetUserNameByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetUserNameByEmailResponse" message="tns:IAuthenticationService_GetUserNameByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxInvalidPasswordAttempts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetMaxInvalidPasswordAttempts" message="tns:IAuthenticationService_GetMaxInvalidPasswordAttempts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetMaxInvalidPasswordAttemptsResponse" message="tns:IAuthenticationService_GetMaxInvalidPasswordAttempts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMinRequiredNonAlphanumericCharacters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetMinRequiredNonAlphanumericCharacters" message="tns:IAuthenticationService_GetMinRequiredNonAlphanumericCharacters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetMinRequiredNonAlphanumericCharactersResponse" message="tns:IAuthenticationService_GetMinRequiredNonAlphanumericCharacters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMinRequiredPasswordLength">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetMinRequiredPasswordLength" message="tns:IAuthenticationService_GetMinRequiredPasswordLength_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetMinRequiredPasswordLengthResponse" message="tns:IAuthenticationService_GetMinRequiredPasswordLength_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordAttemptWindow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordAttemptWindow" message="tns:IAuthenticationService_GetPasswordAttemptWindow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordAttemptWindowResponse" message="tns:IAuthenticationService_GetPasswordAttemptWindow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordFormat" message="tns:IAuthenticationService_GetPasswordFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordFormatResponse" message="tns:IAuthenticationService_GetPasswordFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordStrengthRegularExpression">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordStrengthRegularExpression" message="tns:IAuthenticationService_GetPasswordStrengthRegularExpression_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetPasswordStrengthRegularExpressionResponse" message="tns:IAuthenticationService_GetPasswordStrengthRegularExpression_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiresQuestionAndAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetRequiresQuestionAndAnswer" message="tns:IAuthenticationService_GetRequiresQuestionAndAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetRequiresQuestionAndAnswerResponse" message="tns:IAuthenticationService_GetRequiresQuestionAndAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiresUniqueEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetRequiresUniqueEmail" message="tns:IAuthenticationService_GetRequiresUniqueEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetRequiresUniqueEmailResponse" message="tns:IAuthenticationService_GetRequiresUniqueEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/ResetPassword" message="tns:IAuthenticationService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/ResetPasswordResponse" message="tns:IAuthenticationService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/UnlockUser" message="tns:IAuthenticationService_UnlockUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/UnlockUserResponse" message="tns:IAuthenticationService_UnlockUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/UpdateUser" message="tns:IAuthenticationService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/UpdateUserResponse" message="tns:IAuthenticationService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/ValidateUser" message="tns:IAuthenticationService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/ValidateUserResponse" message="tns:IAuthenticationService_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenewToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/RenewToken" message="tns:IAuthenticationService_RenewToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/RenewTokenResponse" message="tns:IAuthenticationService_RenewToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeTwoFactorToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/InitializeTwoFactorToken" message="tns:IAuthenticationService_InitializeTwoFactorToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/InitializeTwoFactorTokenResponse" message="tns:IAuthenticationService_InitializeTwoFactorToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/LogOff" message="tns:IAuthenticationService_LogOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/LogOffResponse" message="tns:IAuthenticationService_LogOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersToRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/AddUsersToRoles" message="tns:IAuthenticationService_AddUsersToRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/AddUsersToRolesResponse" message="tns:IAuthenticationService_AddUsersToRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/CreateRole" message="tns:IAuthenticationService_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/CreateRoleResponse" message="tns:IAuthenticationService_CreateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/DeleteRole" message="tns:IAuthenticationService_DeleteRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/DeleteRoleResponse" message="tns:IAuthenticationService_DeleteRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersInRole" message="tns:IAuthenticationService_FindUsersInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/FindUsersInRoleResponse" message="tns:IAuthenticationService_FindUsersInRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetAllRoles" message="tns:IAuthenticationService_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetAllRolesResponse" message="tns:IAuthenticationService_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetRolesForUser" message="tns:IAuthenticationService_GetRolesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetRolesForUserResponse" message="tns:IAuthenticationService_GetRolesForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/GetUsersInRole" message="tns:IAuthenticationService_GetUsersInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/GetUsersInRoleResponse" message="tns:IAuthenticationService_GetUsersInRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/IsUserInRole" message="tns:IAuthenticationService_IsUserInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/IsUserInRoleResponse" message="tns:IAuthenticationService_IsUserInRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUsersFromRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/RemoveUsersFromRoles" message="tns:IAuthenticationService_RemoveUsersFromRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/RemoveUsersFromRolesResponse" message="tns:IAuthenticationService_RemoveUsersFromRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/RoleExists" message="tns:IAuthenticationService_RoleExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/RoleExistsResponse" message="tns:IAuthenticationService_RoleExists_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IAuthenticationService" type="tns:IAuthenticationService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IAuthenticationService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetApplicationName">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetApplicationName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetUserByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserKey">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetUserByUserKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordQuestionAndAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/ChangePasswordQuestionAndAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnablePasswordReset">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetEnablePasswordReset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnablePasswordRetrieval">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetEnablePasswordRetrieval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/FindUsersByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByName">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/FindUsersByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfUsersOnline">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetNumberOfUsersOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmail">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetUserNameByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxInvalidPasswordAttempts">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetMaxInvalidPasswordAttempts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMinRequiredNonAlphanumericCharacters">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetMinRequiredNonAlphanumericCharacters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMinRequiredPasswordLength">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetMinRequiredPasswordLength" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordAttemptWindow">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetPasswordAttemptWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordFormat">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetPasswordFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordStrengthRegularExpression">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetPasswordStrengthRegularExpression" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiresQuestionAndAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetRequiresQuestionAndAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiresUniqueEmail">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetRequiresUniqueEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/UnlockUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewToken">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/RenewToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeTwoFactorToken">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/InitializeTwoFactorToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOff">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/LogOff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersToRoles">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/AddUsersToRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/CreateRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/DeleteRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/FindUsersInRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesForUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetRolesForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/GetUsersInRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/IsUserInRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUsersFromRoles">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/RemoveUsersFromRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleExists">
+      <soap12:operation soapAction="http://tempuri.org/IAuthenticationService/RoleExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenticationService">
+    <wsdl:port name="WSHttpBinding_IAuthenticationService" binding="tns:WSHttpBinding_IAuthenticationService">
+      <soap12:address location="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

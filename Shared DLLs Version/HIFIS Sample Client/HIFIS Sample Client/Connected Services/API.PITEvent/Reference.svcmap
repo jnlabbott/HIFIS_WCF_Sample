@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="841443e1-7d95-429e-b7ab-8e3f23583743" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PitEventService.wsdl" MetadataType="Wsdl" ID="b0024d70-14b3-4d33-b4d7-5b370876f6b8" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?wsdl" />
+    <MetadataFile FileName="HIFIS.xsd" MetadataType="Schema" ID="8a93aaad-7744-474f-9f4d-c95d77b6cdac" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HIFIS1.xsd" MetadataType="Schema" ID="21b81ca2-1c3e-4afe-907b-1ce705ba1e28" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HIFIS2.xsd" MetadataType="Schema" ID="e16ca4eb-86ea-4f7d-8bd0-9e08b00900ea" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd5" />
+    <MetadataFile FileName="HIFIS3.xsd" MetadataType="Schema" ID="749f78ea-3cd4-4518-87fa-82d3b4dae1b4" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd4" />
+    <MetadataFile FileName="HIFIS4.xsd" MetadataType="Schema" ID="9a44520f-d1ee-456e-84ce-782dae58e4ab" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HIFIS5.xsd" MetadataType="Schema" ID="fd6713fd-b7e2-4d8d-908b-b37336226d8b" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

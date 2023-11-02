@@ -1,0 +1,1258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PitEventService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPitEventService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NHIS.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPitEventService_HasOneActiveQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasOneActiveQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_HasOneActiveQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasOneActiveQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetActiveQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetActiveQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetActiveQuestionnaireID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveQuestionnaireID" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetActiveQuestionnaireID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveQuestionnaireIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnairesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnairesList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnairesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnairesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionnaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionnaire" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionnaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionnaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitTemplatesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitTemplatesList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitTemplatesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitTemplatesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitTemplateFromTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitTemplateFromTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitTemplateFromTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitTemplateFromTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GeneratePitTemplateXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeneratePitTemplateXML" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GeneratePitTemplateXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeneratePitTemplateXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetCurrentTemplateName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTemplateName" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetCurrentTemplateName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTemplateNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnaireQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnaireQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionnaireQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionnaireQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetAllPitQuestionDropdowns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPitQuestionDropdowns" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetAllPitQuestionDropdowns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPitQuestionDropdownsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionDropdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionDropdown" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionDropdown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionDropdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestionDropdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestionDropdown" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitQuestionDropdown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitQuestionDropdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionDropdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionDropdown" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionDropdown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionDropdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionDropdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionDropdown" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionDropdown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionDropdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_ReorderDropDownValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReorderDropDownValues" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_ReorderDropDownValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReorderDropDownValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetAllPitQuestionAnswersForQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPitQuestionAnswersForQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetAllPitQuestionAnswersForQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPitQuestionAnswersForQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitQuestionAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitQuestionAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_AddPitQuestionAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPitQuestionAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_AddPitQuestionAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPitQuestionAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitQuestionAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitQuestionAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitQuestionAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitQuestionAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitSurvey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitSurvey" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitSurveysList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitSurveysList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitSurveysList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitSurveysListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetIncompletePitSurveys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncompletePitSurveys" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetIncompletePitSurveys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncompletePitSurveysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_SetSurveyStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSurveyStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_SetSurveyStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSurveyStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitSurveyDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitSurveyDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitSurveyDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitSurveyDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreateBlankPitSurveyLive_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankPitSurveyLive" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreateBlankPitSurveyLive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankPitSurveyLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitSurvey_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitSurvey" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitSurveyAttr_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitSurveyAttr" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitSurveyAttr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitSurveyAttrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetReservesCityList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReservesCityList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetReservesCityList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReservesCityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitSurvey_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitSurvey" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_AbandonSurvey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbandonSurvey" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_AbandonSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbandonSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetSurveyIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSurveyIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetSurveyIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSurveyIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetFamilySurveyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilySurveyList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetFamilySurveyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilySurveyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CheckSurveyNumberExistsForDataEntrySurveys_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSurveyNumberExistsForDataEntrySurveys" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CheckSurveyNumberExistsForDataEntrySurveys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSurveyNumberExistsForDataEntrySurveysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitShiftsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitShiftsList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitShiftsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitShiftsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitShift" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetPitShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPitShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitShift" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitShift" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_UpdatePitShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePitShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitShift" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_RemovePitShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePitShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitLiveVolunteers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitLiveVolunteers" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePitLiveVolunteers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePitLiveVolunteersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetQuestionsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetQuestionsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_ImportQuestionByGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportQuestionByGUID" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_ImportQuestionByGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportQuestionByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetQuestionByGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByGUID" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetQuestionByGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_DeleteQuestionByGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuestionByGUID" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_DeleteQuestionByGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuestionByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_PutQuestionByGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutQuestionByGUID" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_PutQuestionByGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutQuestionByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_CreatePiTDataSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePiTDataSet" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_PrepareHPSExport_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrepareHPSExport" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_PrepareHPSExport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrepareHPSExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_SendHPSExport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendHPSExport" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetExportProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportProgress" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetExportProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetExportFileList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportFileList" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_GetExportFileList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_DownloadExportFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadExportFile" />
+  </wsdl:message>
+  <wsdl:message name="IPitEventService_DownloadExportFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadExportFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPitEventService">
+    <wsdl:operation name="HasOneActiveQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/HasOneActiveQuestionnaire" message="tns:IPitEventService_HasOneActiveQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/HasOneActiveQuestionnaireResponse" message="tns:IPitEventService_HasOneActiveQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetActiveQuestionnaire" message="tns:IPitEventService_GetActiveQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetActiveQuestionnaireResponse" message="tns:IPitEventService_GetActiveQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveQuestionnaireID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetActiveQuestionnaireID" message="tns:IPitEventService_GetActiveQuestionnaireID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetActiveQuestionnaireIDResponse" message="tns:IPitEventService_GetActiveQuestionnaireID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnaire" message="tns:IPitEventService_GetPitQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnaireResponse" message="tns:IPitEventService_GetPitQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnairesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnairesList" message="tns:IPitEventService_GetPitQuestionnairesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnairesListResponse" message="tns:IPitEventService_GetPitQuestionnairesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestionnaire" message="tns:IPitEventService_CreatePitQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestionnaireResponse" message="tns:IPitEventService_CreatePitQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionnaire" message="tns:IPitEventService_UpdatePitQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionnaireResponse" message="tns:IPitEventService_UpdatePitQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionnaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionnaire" message="tns:IPitEventService_RemovePitQuestionnaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionnaireResponse" message="tns:IPitEventService_RemovePitQuestionnaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitTemplate" message="tns:IPitEventService_GetPitTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitTemplateResponse" message="tns:IPitEventService_GetPitTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitTemplatesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitTemplatesList" message="tns:IPitEventService_GetPitTemplatesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitTemplatesListResponse" message="tns:IPitEventService_GetPitTemplatesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitTemplate" message="tns:IPitEventService_CreatePitTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitTemplateResponse" message="tns:IPitEventService_CreatePitTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitTemplateFromTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitTemplateFromTemplate" message="tns:IPitEventService_CreatePitTemplateFromTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitTemplateFromTemplateResponse" message="tns:IPitEventService_CreatePitTemplateFromTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitTemplate" message="tns:IPitEventService_UpdatePitTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitTemplateResponse" message="tns:IPitEventService_UpdatePitTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePitTemplateXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GeneratePitTemplateXML" message="tns:IPitEventService_GeneratePitTemplateXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GeneratePitTemplateXMLResponse" message="tns:IPitEventService_GeneratePitTemplateXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitTemplate" message="tns:IPitEventService_RemovePitTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitTemplateResponse" message="tns:IPitEventService_RemovePitTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTemplateName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetCurrentTemplateName" message="tns:IPitEventService_GetCurrentTemplateName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetCurrentTemplateNameResponse" message="tns:IPitEventService_GetCurrentTemplateName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestion" message="tns:IPitEventService_GetPitQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionResponse" message="tns:IPitEventService_GetPitQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnaireQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnaireQuestions" message="tns:IPitEventService_GetPitQuestionnaireQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionnaireQuestionsResponse" message="tns:IPitEventService_GetPitQuestionnaireQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestion" message="tns:IPitEventService_CreatePitQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestionResponse" message="tns:IPitEventService_CreatePitQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestion" message="tns:IPitEventService_UpdatePitQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionResponse" message="tns:IPitEventService_UpdatePitQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestions" message="tns:IPitEventService_UpdatePitQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionsResponse" message="tns:IPitEventService_UpdatePitQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestion" message="tns:IPitEventService_RemovePitQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionResponse" message="tns:IPitEventService_RemovePitQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPitQuestionDropdowns">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetAllPitQuestionDropdowns" message="tns:IPitEventService_GetAllPitQuestionDropdowns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetAllPitQuestionDropdownsResponse" message="tns:IPitEventService_GetAllPitQuestionDropdowns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionDropdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionDropdown" message="tns:IPitEventService_GetPitQuestionDropdown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionDropdownResponse" message="tns:IPitEventService_GetPitQuestionDropdown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestionDropdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestionDropdown" message="tns:IPitEventService_CreatePitQuestionDropdown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitQuestionDropdownResponse" message="tns:IPitEventService_CreatePitQuestionDropdown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionDropdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionDropdown" message="tns:IPitEventService_UpdatePitQuestionDropdown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionDropdownResponse" message="tns:IPitEventService_UpdatePitQuestionDropdown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionDropdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionDropdown" message="tns:IPitEventService_RemovePitQuestionDropdown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionDropdownResponse" message="tns:IPitEventService_RemovePitQuestionDropdown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReorderDropDownValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/ReorderDropDownValues" message="tns:IPitEventService_ReorderDropDownValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/ReorderDropDownValuesResponse" message="tns:IPitEventService_ReorderDropDownValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPitQuestionAnswersForQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetAllPitQuestionAnswersForQuestion" message="tns:IPitEventService_GetAllPitQuestionAnswersForQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetAllPitQuestionAnswersForQuestionResponse" message="tns:IPitEventService_GetAllPitQuestionAnswersForQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionAnswer" message="tns:IPitEventService_GetPitQuestionAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitQuestionAnswerResponse" message="tns:IPitEventService_GetPitQuestionAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPitQuestionAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/AddPitQuestionAnswer" message="tns:IPitEventService_AddPitQuestionAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/AddPitQuestionAnswerResponse" message="tns:IPitEventService_AddPitQuestionAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionAnswer" message="tns:IPitEventService_UpdatePitQuestionAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitQuestionAnswerResponse" message="tns:IPitEventService_UpdatePitQuestionAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionAnswer" message="tns:IPitEventService_RemovePitQuestionAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitQuestionAnswerResponse" message="tns:IPitEventService_RemovePitQuestionAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitSurvey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitSurvey" message="tns:IPitEventService_GetPitSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitSurveyResponse" message="tns:IPitEventService_GetPitSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitSurveysList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitSurveysList" message="tns:IPitEventService_GetPitSurveysList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitSurveysListResponse" message="tns:IPitEventService_GetPitSurveysList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncompletePitSurveys">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetIncompletePitSurveys" message="tns:IPitEventService_GetIncompletePitSurveys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetIncompletePitSurveysResponse" message="tns:IPitEventService_GetIncompletePitSurveys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSurveyStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/SetSurveyStatus" message="tns:IPitEventService_SetSurveyStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/SetSurveyStatusResponse" message="tns:IPitEventService_SetSurveyStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitSurveyDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitSurveyDataEntry" message="tns:IPitEventService_CreatePitSurveyDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitSurveyDataEntryResponse" message="tns:IPitEventService_CreatePitSurveyDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBlankPitSurveyLive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreateBlankPitSurveyLive" message="tns:IPitEventService_CreateBlankPitSurveyLive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreateBlankPitSurveyLiveResponse" message="tns:IPitEventService_CreateBlankPitSurveyLive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitSurvey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitSurvey" message="tns:IPitEventService_UpdatePitSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitSurveyResponse" message="tns:IPitEventService_UpdatePitSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitSurveyAttr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitSurveyAttr" message="tns:IPitEventService_UpdatePitSurveyAttr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitSurveyAttrResponse" message="tns:IPitEventService_UpdatePitSurveyAttr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReservesCityList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetReservesCityList" message="tns:IPitEventService_GetReservesCityList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetReservesCityListResponse" message="tns:IPitEventService_GetReservesCityList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitSurvey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitSurvey" message="tns:IPitEventService_RemovePitSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitSurveyResponse" message="tns:IPitEventService_RemovePitSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbandonSurvey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/AbandonSurvey" message="tns:IPitEventService_AbandonSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/AbandonSurveyResponse" message="tns:IPitEventService_AbandonSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetSurveyIdentifiers" message="tns:IPitEventService_GetSurveyIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetSurveyIdentifiersResponse" message="tns:IPitEventService_GetSurveyIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilySurveyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetFamilySurveyList" message="tns:IPitEventService_GetFamilySurveyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetFamilySurveyListResponse" message="tns:IPitEventService_GetFamilySurveyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSurveyNumberExistsForDataEntrySurveys">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CheckSurveyNumberExistsForDataEntrySurveys" message="tns:IPitEventService_CheckSurveyNumberExistsForDataEntrySurveys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CheckSurveyNumberExistsForDataEntrySurveysResponse" message="tns:IPitEventService_CheckSurveyNumberExistsForDataEntrySurveys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitShiftsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitShiftsList" message="tns:IPitEventService_GetPitShiftsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitShiftsListResponse" message="tns:IPitEventService_GetPitShiftsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPitShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetPitShift" message="tns:IPitEventService_GetPitShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetPitShiftResponse" message="tns:IPitEventService_GetPitShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitShift" message="tns:IPitEventService_CreatePitShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitShiftResponse" message="tns:IPitEventService_CreatePitShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitShift" message="tns:IPitEventService_UpdatePitShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/UpdatePitShiftResponse" message="tns:IPitEventService_UpdatePitShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/RemovePitShift" message="tns:IPitEventService_RemovePitShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/RemovePitShiftResponse" message="tns:IPitEventService_RemovePitShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitLiveVolunteers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePitLiveVolunteers" message="tns:IPitEventService_CreatePitLiveVolunteers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/CreatePitLiveVolunteersResponse" message="tns:IPitEventService_CreatePitLiveVolunteers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetQuestionsList" message="tns:IPitEventService_GetQuestionsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetQuestionsListResponse" message="tns:IPitEventService_GetQuestionsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportQuestionByGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/ImportQuestionByGUID" message="tns:IPitEventService_ImportQuestionByGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/ImportQuestionByGUIDResponse" message="tns:IPitEventService_ImportQuestionByGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetQuestionByGUID" message="tns:IPitEventService_GetQuestionByGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetQuestionByGUIDResponse" message="tns:IPitEventService_GetQuestionByGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuestionByGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/DeleteQuestionByGUID" message="tns:IPitEventService_DeleteQuestionByGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/DeleteQuestionByGUIDResponse" message="tns:IPitEventService_DeleteQuestionByGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutQuestionByGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/PutQuestionByGUID" message="tns:IPitEventService_PutQuestionByGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/PutQuestionByGUIDResponse" message="tns:IPitEventService_PutQuestionByGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePiTDataSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/CreatePiTDataSet" message="tns:IPitEventService_CreatePiTDataSet_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrepareHPSExport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/PrepareHPSExport" message="tns:IPitEventService_PrepareHPSExport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/PrepareHPSExportResponse" message="tns:IPitEventService_PrepareHPSExport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendHPSExport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/SendHPSExport" message="tns:IPitEventService_SendHPSExport_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetExportProgress" message="tns:IPitEventService_GetExportProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetExportProgressResponse" message="tns:IPitEventService_GetExportProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportFileList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/GetExportFileList" message="tns:IPitEventService_GetExportFileList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/GetExportFileListResponse" message="tns:IPitEventService_GetExportFileList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadExportFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPitEventService/DownloadExportFile" message="tns:IPitEventService_DownloadExportFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPitEventService/DownloadExportFileResponse" message="tns:IPitEventService_DownloadExportFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IPitEventService" type="tns:IPitEventService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPitEventService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HasOneActiveQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/HasOneActiveQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetActiveQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveQuestionnaireID">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetActiveQuestionnaireID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnairesList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestionnairesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionnaire">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitQuestionnaire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitTemplate">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitTemplatesList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitTemplatesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitTemplate">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitTemplateFromTemplate">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitTemplateFromTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitTemplate">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePitTemplateXML">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GeneratePitTemplateXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitTemplate">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTemplateName">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetCurrentTemplateName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionnaireQuestions">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestionnaireQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestions">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPitQuestionDropdowns">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetAllPitQuestionDropdowns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionDropdown">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestionDropdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitQuestionDropdown">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitQuestionDropdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionDropdown">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitQuestionDropdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionDropdown">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitQuestionDropdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReorderDropDownValues">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/ReorderDropDownValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPitQuestionAnswersForQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetAllPitQuestionAnswersForQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitQuestionAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitQuestionAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPitQuestionAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/AddPitQuestionAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitQuestionAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitQuestionAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitQuestionAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitQuestionAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitSurvey">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitSurvey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitSurveysList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitSurveysList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncompletePitSurveys">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetIncompletePitSurveys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSurveyStatus">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/SetSurveyStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitSurveyDataEntry">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitSurveyDataEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBlankPitSurveyLive">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreateBlankPitSurveyLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitSurvey">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitSurvey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitSurveyAttr">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitSurveyAttr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReservesCityList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetReservesCityList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitSurvey">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitSurvey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbandonSurvey">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/AbandonSurvey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetSurveyIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilySurveyList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetFamilySurveyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSurveyNumberExistsForDataEntrySurveys">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CheckSurveyNumberExistsForDataEntrySurveys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitShiftsList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitShiftsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPitShift">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetPitShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitShift">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePitShift">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/UpdatePitShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePitShift">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/RemovePitShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePitLiveVolunteers">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePitLiveVolunteers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionsList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetQuestionsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportQuestionByGUID">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/ImportQuestionByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByGUID">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetQuestionByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuestionByGUID">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/DeleteQuestionByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutQuestionByGUID">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/PutQuestionByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePiTDataSet">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/CreatePiTDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="PrepareHPSExport">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/PrepareHPSExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendHPSExport">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/SendHPSExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportProgress">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetExportProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportFileList">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/GetExportFileList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadExportFile">
+      <soap12:operation soapAction="http://tempuri.org/IPitEventService/DownloadExportFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PitEventService">
+    <wsdl:port name="WSHttpBinding_IPitEventService" binding="tns:WSHttpBinding_IPitEventService">
+      <soap12:address location="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

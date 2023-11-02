@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.PitEventService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" />
+  <xs:complexType name="Authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppSettings" nillable="true" type="tns:ApplicationSettings" />
+      <xs:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ChildrenAge" type="xs:short" />
+      <xs:element minOccurs="0" name="CurrentClusterID" type="xs:short" />
+      <xs:element minOccurs="0" name="CurrentCulture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentGeoRegionID" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="CurrentOrgID" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentRightID" nillable="true" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorCodes" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FamilyHeadAge" type="xs:short" />
+      <xs:element minOccurs="0" name="FirstLogon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBedDisplayExpanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Privacy" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SeeChildren" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SeeFemales" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SeeMales" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SeeYouth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SeniorAge" type="xs:short" />
+      <xs:element minOccurs="0" name="UserRights" nillable="true" type="tns:ArrayOfUserRight" />
+      <xs:element minOccurs="0" name="YouthAge" type="xs:short" />
+      <xs:element minOccurs="0" name="userCache" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userID" type="xs:int" />
+      <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Authentication" nillable="true" type="tns:Authentication" />
+  <xs:complexType name="ApplicationSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowClientsInPeopleSearch_Key" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AppSettingList" nillable="true" type="q2:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="AttestationTextEng_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttestationTextFr_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BingMapKey_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClusterID_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConcurrentSessions_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsentExpiryDays_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabaseGUID_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabaseSiteID_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultFileNumber_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultPassword_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultSelectedRowIndex_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMailExpiry_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnableAttestation_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnableShare_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnabledObservedDisabilityIndicator_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnabledPresumedIndigenousIndicator_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnforceConsent_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeoRegionFilter_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HousingInactivityThreshold_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InactivityThreshold_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceInfo_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDebug_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaximumRowsInList_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaximumRowsOnPage_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinTriggerConsentAge_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinimumCharacterInput_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrgCode_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordAgeLimit_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordComplexityHelp_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RestrictClientSearch_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionTimout_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShelterStayInHousingHistory_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeOut_Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorAuth_key" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSettings" nillable="true" type="tns:ApplicationSettings" />
+  <xs:complexType name="ArrayOfUserRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRight" nillable="true" type="tns:UserRight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRight" nillable="true" type="tns:ArrayOfUserRight" />
+  <xs:complexType name="UserRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowedYN" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanEdit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RightID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserRightID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRight" nillable="true" type="tns:UserRight" />
+  <xs:complexType name="PitQuestionnaire">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActiveYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CityID" type="xs:int" />
+          <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DPAEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DPAName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EventEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EventStartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExportID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GUID" type="ser:guid" />
+          <xs:element minOccurs="0" name="HasSurveys" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HiddenHomelessnessYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IntervieweeIdYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LiveSurveyOffsetNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LockedYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MinSurveyAge" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Mobile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OwnerOrgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OwnerOrgName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodPrevalenceCountYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PitQuestionnaireID" type="xs:int" />
+          <xs:element minOccurs="0" name="PitTemplateID" type="xs:short" />
+          <xs:element minOccurs="0" name="PitTemplateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceID" type="xs:short" />
+          <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfPitQuestion" />
+          <xs:element minOccurs="0" name="QuickInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegistraDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RegistryWeekYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitQuestionnaire" nillable="true" type="tns:PitQuestionnaire" />
+  <xs:complexType name="BaseDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HifisRowVersion" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastUpdatedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseDataContract" nillable="true" type="tns:BaseDataContract" />
+  <xs:complexType name="ArrayOfPitQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitQuestion" nillable="true" type="tns:PitQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitQuestion" nillable="true" type="tns:ArrayOfPitQuestion" />
+  <xs:complexType name="PitQuestion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AffectedQuestions" nillable="true" type="tns:ArrayOfPitQuestion" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AffectedQuestionsIDs" nillable="true" type="q3:ArrayOfint" />
+          <xs:element minOccurs="0" name="DropdownValues" nillable="true" type="tns:ArrayOfPitQuestionDropDown" />
+          <xs:element minOccurs="0" name="EventSelectable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromTemplateQuestionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HiddenHomelessness" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InitiallyEnabledYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LockedYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MultipleAnswersYN" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ParentOfQuestionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ParentQuestionSequenceLabel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitQuestionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitQuestionnaireID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PitTemplateID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuestionActionTypeID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="QuestionCategorytTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="QuestionF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuestionGUID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+          <xs:element minOccurs="0" name="QuestionNo" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="QuestionTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="QuestionTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SequenceLabel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SequenceNo" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitQuestion" nillable="true" type="tns:PitQuestion" />
+  <xs:complexType name="ArrayOfPitQuestionDropDown">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitQuestionDropDown" nillable="true" type="tns:PitQuestionDropDown" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitQuestionDropDown" nillable="true" type="tns:ArrayOfPitQuestionDropDown" />
+  <xs:complexType name="PitQuestionDropDown">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AffectedQuestions" nillable="true" type="tns:ArrayOfPitQuestion" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AffectedQuestionsIDs" nillable="true" type="q4:ArrayOfint" />
+          <xs:element minOccurs="0" name="AnsweredBehaviourYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DropDownActionTypeID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="EmptyBehaviourYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLiveSurveyYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRollupTo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LegacyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NameE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitDropDownName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitQuestionnaireID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PitTemplateID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+          <xs:element minOccurs="0" name="QuestionNo" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="QuestionPickListID" type="xs:int" />
+          <xs:element minOccurs="0" name="RollupID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Sequence" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitQuestionDropDown" nillable="true" type="tns:PitQuestionDropDown" />
+  <xs:complexType name="ArrayOfPitQuestionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitQuestionnaire" nillable="true" type="tns:PitQuestionnaire" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitQuestionnaire" nillable="true" type="tns:ArrayOfPitQuestionnaire" />
+  <xs:complexType name="WCFValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewRowVersion" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:anyType" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValidationMessages" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" minOccurs="0" name="ValidationResultCode" type="q6:ValidationResultCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WCFValidationResult" nillable="true" type="tns:WCFValidationResult" />
+  <xs:complexType name="Parameters">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReportID" type="xs:int" />
+          <xs:element minOccurs="0" name="ReportName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportParameters" nillable="true" type="tns:ArrayOfParameter" />
+          <xs:element minOccurs="0" name="SerializedModelState" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Parameters" nillable="true" type="tns:Parameters" />
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="tns:Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameter" nillable="true" type="tns:ArrayOfParameter" />
+  <xs:complexType name="Parameter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParameterData" nillable="true" type="tns:ParameterData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Parameter" nillable="true" type="tns:Parameter" />
+  <xs:complexType name="ParameterData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowMultiple" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CustomLookupList" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="Internal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ParameterData" nillable="true" type="tns:ParameterData" />
+  <xs:complexType name="ArrayOfListItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="tns:ListItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListItem" nillable="true" type="tns:ArrayOfListItem" />
+  <xs:complexType name="ListItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListItem" nillable="true" type="tns:ListItem" />
+  <xs:complexType name="Report">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConfidentialYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DBVersion" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DateUploaded" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Deleteable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Document" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="File" nillable="true" type="tns:File" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="HasParameters" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="IsClient" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextUpdReport" nillable="true" type="tns:Report" />
+          <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+          <xs:element minOccurs="0" name="ReleaseNotes" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReportCategories" nillable="true" type="q7:ArrayOfint" />
+          <xs:element minOccurs="0" name="ReportParameters" nillable="true" type="tns:ArrayOfParameter" />
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ServiceProviders" nillable="true" type="q8:ArrayOfint" />
+          <xs:element minOccurs="0" name="Type" type="ser:char" />
+          <xs:element minOccurs="0" name="UpdateAvailable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="VersionNumber" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="File">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ByteArray" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Size" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File" nillable="true" type="tns:File" />
+  <xs:complexType name="ClientHousingHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveDateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ActiveDateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ActiveHousingPlacement" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ClientHouseID" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientIncome" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasActiveHousingRetention" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasDependencies" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HouseDetails" nillable="true" type="tns:HousingUnit" />
+          <xs:element minOccurs="0" name="HouseID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HousePlacementFollowUpCompleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HousePlacementID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HousePlacementOrgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HousePlacementServiceID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="HouseRetentionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HouseRetentionOrgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastRent" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MostRecentHistory" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Subsidies" nillable="true" type="tns:ArrayOfHousingSubsidy" />
+          <xs:element minOccurs="0" name="Telephone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone1Ext" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone2" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClientHousingHistory" nillable="true" type="tns:ClientHousingHistory" />
+  <xs:complexType name="HousingUnit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="AddressID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="AddressString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaSqFt" nillable="true" type="xs:decimal" />
+          <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Attributes" nillable="true" type="q9:ArrayOfshort" />
+          <xs:element minOccurs="0" name="ClusterID" type="xs:short" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentStatus" nillable="true" type="tns:HousingUnitStatus" />
+          <xs:element minOccurs="0" name="DateOfOccupancy" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpectedMoveInDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Floor" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="HouseID" type="xs:int" />
+          <xs:element minOccurs="0" name="HousingTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="HousingTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsInPlacementInventory" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOccupied" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSecured" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsShareable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Landlord" nillable="true" type="tns:Landlord" />
+          <xs:element minOccurs="0" name="LandlordPersonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MaintenanceWorks" nillable="true" type="tns:ArrayOfHousingMaintenance" />
+          <xs:element minOccurs="0" name="NoOfBedrooms" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="NoOfFloors" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="OccupancyComment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OccupancyStatus" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="OrgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OrgName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photos" nillable="true" type="tns:ArrayOfHousingPhoto" />
+          <xs:element minOccurs="0" name="Rent" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StatusString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YearOfBuilt" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HousingUnit" nillable="true" type="tns:HousingUnit" />
+  <xs:complexType name="Address">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+          <xs:element minOccurs="0" name="AddressLn1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLn2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Building" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryID" type="xs:short" />
+          <xs:element minOccurs="0" name="Floor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GeoRegionID" nillable="true" type="xs:short" />
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GeoRegionIDs" nillable="true" type="q10:ArrayOfshort" />
+          <xs:element minOccurs="0" name="InternationalCityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InternationalPostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InternationalProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MapURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MetaDataSearch" nillable="true" type="xs:string" />
+          <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlaceIDs" nillable="true" type="q11:ArrayOfint" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="SelectedCityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelectedProvinceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="HousingUnitStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HousingStatusName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HousingStatusTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="StatusDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StatusDateAsString" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HousingUnitStatus" nillable="true" type="tns:HousingUnitStatus" />
+  <xs:complexType name="Landlord">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactInfo" nillable="true" type="tns:ArrayOfDigitalContact" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GenderTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="HousingUnitCount" type="xs:int" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Landlord" nillable="true" type="tns:Landlord" />
+  <xs:complexType name="ArrayOfDigitalContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalContact" nillable="true" type="tns:DigitalContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalContact" nillable="true" type="tns:ArrayOfDigitalContact" />
+  <xs:complexType name="DigitalContact">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DigitalContactExt" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DigitalContactID" type="xs:int" />
+          <xs:element minOccurs="0" name="DigitalContactTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="DigitalContactTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DigitalContactValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PersonID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DigitalContact" nillable="true" type="tns:DigitalContact" />
+  <xs:complexType name="ArrayOfHousingMaintenance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HousingMaintenance" nillable="true" type="tns:HousingMaintenance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHousingMaintenance" nillable="true" type="tns:ArrayOfHousingMaintenance" />
+  <xs:complexType name="HousingMaintenance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActualCost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActualEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ActualStartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompletedYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ContractingCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractorName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HouseID" type="xs:int" />
+          <xs:element minOccurs="0" name="HouseMaintenanceID" type="xs:int" />
+          <xs:element minOccurs="0" name="MaintenanceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaintenanceTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="PersonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ScheduledCost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScheduledEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ScheduledStartDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HousingMaintenance" nillable="true" type="tns:HousingMaintenance" />
+  <xs:complexType name="ArrayOfHousingPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HousingPhoto" nillable="true" type="tns:HousingPhoto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHousingPhoto" nillable="true" type="tns:ArrayOfHousingPhoto" />
+  <xs:complexType name="HousingPhoto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HouseID" type="xs:int" />
+          <xs:element minOccurs="0" name="HousePhotoID" type="xs:long" />
+          <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhotoDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PhotoImage" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HousingPhoto" nillable="true" type="tns:HousingPhoto" />
+  <xs:complexType name="ArrayOfHousingSubsidy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HousingSubsidy" nillable="true" type="tns:HousingSubsidy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHousingSubsidy" nillable="true" type="tns:ArrayOfHousingSubsidy" />
+  <xs:complexType name="HousingSubsidy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ClientHouseID" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HousingSubsidyID" type="xs:int" />
+          <xs:element minOccurs="0" name="PayFrequencyType" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramIDs" nillable="true" type="q12:ArrayOfint" />
+          <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonForServiceTypeID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="ServiceID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ServiceProviderID" type="xs:int" />
+          <xs:element minOccurs="0" name="ServiceProviderName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HousingSubsidy" nillable="true" type="tns:HousingSubsidy" />
+  <xs:complexType name="PitTemplate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromPitTemplateID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="LockedYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitTemplateID" type="xs:short" />
+          <xs:element minOccurs="0" name="PitTemplateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfPitQuestion" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitTemplate" nillable="true" type="tns:PitTemplate" />
+  <xs:complexType name="ArrayOfPitTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitTemplate" nillable="true" type="tns:PitTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitTemplate" nillable="true" type="tns:ArrayOfPitTemplate" />
+  <xs:complexType name="ArrayOfPitQuestionAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitQuestionAnswer" nillable="true" type="tns:PitQuestionAnswer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitQuestionAnswer" nillable="true" type="tns:ArrayOfPitQuestionAnswer" />
+  <xs:complexType name="PitQuestionAnswer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="DateValue" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FamilyMemberAnswersList" nillable="true" type="tns:ArrayOfPitFamilyMemberAnswer" />
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MultipleDropdownValue" nillable="true" type="q13:ArrayOfint" />
+          <xs:element minOccurs="0" name="NumericValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PitQuestionAnswerID" type="xs:int" />
+          <xs:element minOccurs="0" name="PitSurveyID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="QuestionCategoryTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+          <xs:element minOccurs="0" name="SingleDropdownValue" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TextValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YNValue" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitQuestionAnswer" nillable="true" type="tns:PitQuestionAnswer" />
+  <xs:complexType name="ArrayOfPitFamilyMemberAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitFamilyMemberAnswer" nillable="true" type="tns:PitFamilyMemberAnswer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitFamilyMemberAnswer" nillable="true" type="tns:ArrayOfPitFamilyMemberAnswer" />
+  <xs:complexType name="PitFamilyMemberAnswer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Age" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="FamilyMemberRole" type="xs:short" />
+          <xs:element minOccurs="0" name="GenderTypeID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="PitFamilyMemberAnswerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PitQuestionAnswerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PitSurveyNo" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitFamilyMemberAnswer" nillable="true" type="tns:PitFamilyMemberAnswer" />
+  <xs:complexType name="PitSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsLive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PitQuestionnaire" nillable="true" type="tns:PitQuestionnaire" />
+          <xs:element minOccurs="0" name="PitQuestionnaireID" type="xs:int" />
+          <xs:element minOccurs="0" name="PitScreenedIN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PitSurveyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ReasonForAbandonedFreeText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonForAbandonedTypeID" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="ShiftID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ShiftTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SurveyAnswersList" nillable="true" type="tns:ArrayOfPitQuestionAnswer" />
+          <xs:element minOccurs="0" name="SurveyDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SurveyIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SurveyNo" type="xs:int" />
+          <xs:element minOccurs="0" name="SurveyStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitSurvey" nillable="true" type="tns:PitSurvey" />
+  <xs:complexType name="ArrayOfPitSurvey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitSurvey" nillable="true" type="tns:PitSurvey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitSurvey" nillable="true" type="tns:ArrayOfPitSurvey" />
+  <xs:complexType name="ArrayOfPitShift">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitShift" nillable="true" type="tns:PitShift" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitShift" nillable="true" type="tns:ArrayOfPitShift" />
+  <xs:complexType name="PitShift">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OrgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OrgName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PiTQuestionnaireID" type="xs:int" />
+          <xs:element minOccurs="0" name="PitQuestionnaireName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PitShiftID" type="xs:int" />
+          <xs:element minOccurs="0" name="PlaceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PlaceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportingOrgID" type="xs:int" />
+          <xs:element minOccurs="0" name="ReportingOrgName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PitShift" nillable="true" type="tns:PitShift" />
+  <xs:complexType name="ArrayOfPitVolunteerUserProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitVolunteerUserProfile" nillable="true" type="tns:PitVolunteerUserProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitVolunteerUserProfile" nillable="true" type="tns:ArrayOfPitVolunteerUserProfile" />
+  <xs:complexType name="PitVolunteerUserProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:UserProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PitVolunteerUserProfile" nillable="true" type="tns:PitVolunteerUserProfile" />
+  <xs:complexType name="UserProfile">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowMultipleLogin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConcurrentYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CultureTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DefaultOrganizationId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DefaultOrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EULAAcceptedYN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GenderTypeID" type="xs:short" />
+          <xs:element minOccurs="0" name="HasAuthenticationToken" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLockedOut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastLogin" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastPasswordChangedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MembershipProviderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MetaDataSearch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordResetExpiry" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PasswordResetGuid" type="ser:guid" />
+          <xs:element minOccurs="0" name="PersonID" nillable="true" type="xs:int" />
+          <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReportCategories" nillable="true" type="q14:ArrayOfint" />
+          <xs:element minOccurs="0" name="RoleNameE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleNameF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityKey" nillable="true" type="xs:string" />
+          <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SelectedRoles" nillable="true" type="q15:ArrayOfshort" />
+          <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ServiceProviders" nillable="true" type="q16:ArrayOfKeyValueOfintstring" />
+          <xs:element minOccurs="0" name="UserCache" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UserOrganizations" nillable="true" type="q17:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserProfile" nillable="true" type="tns:UserProfile" />
+  <xs:complexType name="ArrayOfPitUploadedVolunteer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PitUploadedVolunteer" nillable="true" type="tns:PitUploadedVolunteer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPitUploadedVolunteer" nillable="true" type="tns:ArrayOfPitUploadedVolunteer" />
+  <xs:complexType name="PitUploadedVolunteer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PitUploadedVolunteer" nillable="true" type="tns:PitUploadedVolunteer" />
+  <xs:simpleType name="PiTDataSetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Full" />
+      <xs:enumeration value="RegistryWeek" />
+      <xs:enumeration value="Ontario" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PiTDataSetType" nillable="true" type="tns:PiTDataSetType" />
+</xs:schema>
